@@ -8,17 +8,6 @@ import org.springframework.stereotype.Component;
 
 import com.java.lms.model.Rol;
 
-/**
- * Spring inyecta automáticamente TODAS las UsuarioFactory que existan como
- * @Component (Instructor, Estudiante, Administrador...). Este provider las
- * indexa por Rol para poder pedir "la factory de este rol" sin necesidad de
- * un switch/if en el controlador.
- *
- * Ventaja clave: si el día de mañana se agrega un nuevo tipo de usuario
- * (por ejemplo, un "Moderador"), solo hace falta crear su clase Usuario y su
- * ModeradorFactory. Ni este provider ni el controlador necesitan cambiar
- * (principio Abierto/Cerrado).
- */
 @Component
 public class UsuarioFactoryProvider {
 

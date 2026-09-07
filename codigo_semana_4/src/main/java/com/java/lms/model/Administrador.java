@@ -11,6 +11,4 @@ public class Administrador extends Usuario {
 		return Rol.ADMINISTRADOR;
 	}
 
-	// Aquí a futuro: métodos propios de un administrador,
-	// por ejemplo gestionarUsuarios(), verReportes(), etc.
 }

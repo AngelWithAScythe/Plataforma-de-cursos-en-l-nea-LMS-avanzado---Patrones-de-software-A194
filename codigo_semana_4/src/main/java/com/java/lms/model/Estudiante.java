@@ -10,7 +10,4 @@ public class Estudiante extends Usuario {
 	public Rol getRol() {
 		return Rol.ESTUDIANTE;
 	}
-
-	// Aquí a futuro: métodos propios de un estudiante,
-	// por ejemplo inscribirseACurso(), verProgreso(), etc.
 }

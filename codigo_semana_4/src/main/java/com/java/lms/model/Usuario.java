@@ -1,10 +1,5 @@
 package com.java.lms.model;
 
-/**
- * Producto abstracto del patrón Factory Method.
- * Cada subclase (Instructor, Estudiante, Administrador) representa
- * un tipo concreto de usuario y decide su propio Rol.
- */
 public abstract class Usuario {
 
 	private String id;
@@ -23,7 +18,7 @@ public abstract class Usuario {
 		this.contrasena = contrasena;
 	}
 
-	// Cada subclase concreta define cuál es su rol.
+
 	public abstract Rol getRol();
 
 	public String getId() {

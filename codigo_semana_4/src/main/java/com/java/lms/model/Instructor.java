@@ -10,7 +10,4 @@ public class Instructor extends Usuario {
 	public Rol getRol() {
 		return Rol.INSTRUCTOR;
 	}
-
-	// Aquí a futuro: métodos propios de un instructor,
-	// por ejemplo crearCurso(), calificarEstudiante(), etc.
 }
