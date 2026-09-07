@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Home LMS</title>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	rel="stylesheet">
+</head>
+<body>
+<div class="container">
+	<p>Bienvenido, <span th:text="${usuario.nombre}"></span> (<span th:text="${usuario.rol}"></span>)</p>
+	<a th:if="${usuario.rol.name == 'ADMINISTRADOR'}" th:href="@{/admin/usuarios}" class="btn btn-primary">Crear usuario</a>
+	<form th:action="@{/logout}" method="post" style="display:inline;">
+    <button type="submit" class="btn btn-secondary">Cerrar sesión</button>
+</form>
+</div>
+</body>
+</html>
