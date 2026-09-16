@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Configurar plantilla de certificado</title>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<div class="mx-auto" style="max-width: 480px; margin-top: 40px;">
+			<h1>Plantilla de certificado</h1>
+			<p>Curso: <strong th:text="${curso.contenido.titulo}"></strong></p>
+			<p class="text-muted">Estos datos se usarán para todos los certificados que emitas de este curso.</p>
+
+			<form th:action="@{/instructor/cursos/{id}/plantilla-certificado(id=${curso.id})}" method="post">
+				<div class="form-group">
+					<label for="firmaInstructor">Firma (nombre a mostrar)</label>
+					<input type="text" id="firmaInstructor" name="firmaInstructor" class="form-control" required>
+				</div>
+				<div class="form-group">
+					<label for="logoUrl">URL del logo (opcional)</label>
+					<input type="text" id="logoUrl" name="logoUrl" class="form-control">
+				</div>
+				<div class="form-group">
+					<label for="textoLegal">Texto legal (opcional)</label>
+					<input type="text" id="textoLegal" name="textoLegal" class="form-control">
+				</div>
+				<button type="submit" class="btn btn-primary">Guardar plantilla</button>
+			</form>
+			<a th:href="@{/instructor/mis-cursos}" class="btn btn-secondary mt-2">Volver</a>
+		</div>
+	</div>
+</body>
+</html>
