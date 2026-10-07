@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Mis cursos</title>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container" style="margin-top: 40px;">
+		<h1>Mis cursos</h1>
+
+		<p th:if="${#lists.isEmpty(cursos)}">Todavía no has creado ningún curso.</p>
+
+		<div class="card mb-3" th:each="curso : ${cursos}">
+			<div class="card-body">
+				<h5 class="card-title" th:text="${curso.contenido.titulo}"></h5>
+				<p class="card-text" th:text="${curso.contenido.descripcion}"></p>
+				<p><strong>Evaluación:</strong> <span th:text="${curso.evaluacion.nombre}"></span>
+					(nota mínima: <span th:text="${curso.evaluacion.notaMinimaAprobacion}"></span>)</p>
+				<p><strong>Certificado:</strong> <span th:text="${curso.certificado.nombreCurso}"></span></p>
+				<a th:href="@{/instructor/cursos/{id}/certificado(id=${curso.id})}" class="btn btn-sm btn-outline-primary">Emitir certificado</a>
+				<a th:href="@{/instructor/cursos/{id}/certificados(id=${curso.id})}" class="btn btn-sm btn-outline-secondary">Ver certificados emitidos</a>
+				<a th:href="@{/instructor/cursos/{id}/plantilla-certificado(id=${curso.id})}" class="btn btn-sm btn-outline-dark">Configurar plantilla</a>
+				<a th:href="@{/instructor/cursos/{id}/contenido(id=${curso.id})}" class="btn btn-sm btn-outline-info">Contenido</a>
+			</div>
+		</div>
+
+		<a th:href="@{/home}" class="btn btn-secondary">Volver</a>
+	</div>
+</body>
+</html>
