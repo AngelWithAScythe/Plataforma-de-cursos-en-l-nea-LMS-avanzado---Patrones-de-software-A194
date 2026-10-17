@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Certificados emitidos</title>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container" style="margin-top: 40px;">
+		<h1>Certificados de <span th:text="${curso.contenido.titulo}"></span></h1>
+
+		<p th:if="${#lists.isEmpty(certificados)}">Todavía no se ha emitido ningún certificado para este curso.</p>
+
+		<table class="table" th:unless="${#lists.isEmpty(certificados)}">
+			<thead>
+				<tr>
+					<th>Estudiante</th>
+					<th>Nota</th>
+					<th>Firma</th>
+					<th>Fecha de emisión</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="cert : ${certificados}">
+					<td th:text="${cert.nombreEstudiante}"></td>
+					<td th:text="${cert.notaObtenida}"></td>
+					<td th:text="${cert.firmaInstructor}"></td>
+					<td th:text="${cert.fechaEmision}"></td>
+					<td>
+						<form th:action="@{/instructor/certificados/{cursoId}/{estudiante}/exportar(cursoId=${curso.id},estudiante=${cert.nombreEstudiante})}"
+							  method="get" class="form-inline">
+					
+							<div class="form-check form-check-inline" style="margin-right: 8px;">
+								<input type="checkbox" class="form-check-input" th:id="|marca-${cert.nombreEstudiante}|" name="marcaAgua" value="true">
+								<label class="form-check-label" style="font-size: 0.8em;" th:for="|marca-${cert.nombreEstudiante}|">Marca de agua</label>
+							</div>
+					
+							<div class="form-check form-check-inline" style="margin-right: 8px;">
+								<input type="checkbox" class="form-check-input" th:id="|codigo-${cert.nombreEstudiante}|" name="codigoVerificacion" value="true">
+								<label class="form-check-label" style="font-size: 0.8em;" th:for="|codigo-${cert.nombreEstudiante}|">Código verificación</label>
+							</div>
+					
+							<button type="submit" name="formato" value="html" class="btn btn-sm btn-outline-secondary" formtarget="_blank">Vista previa</button>
+							<button type="submit" name="formato" value="pdf" class="btn btn-sm btn-outline-success" formtarget="_blank">Descargar PDF</button>
+						</form>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<a th:href="@{/instructor/mis-cursos}" class="btn btn-secondary">Volver</a>
+	</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div th:fragment="nodo(curso, modulo)" style="margin-left: 15px; margin-top: 8px;">
+	<div class="card mb-2">
+		<div class="card-body py-2">
+			<strong th:text="${modulo.titulo}"></strong>
+			<span class="text-muted" style="font-size: 0.85em;">
+				— <span th:text="${modulo.contarLecciones()}"></span> lecciones,
+				<span th:text="${modulo.duracionMinutos}"></span> min
+			</span>
+
+			<ul style="list-style: none; padding-left: 0;">
+				<li th:each="elemento : ${modulo.elementos}">
+					<th:block th:if="${elemento instanceof T(com.java.lms.curso.model.Modulo)}">
+						<div th:replace="~{fragments/modulo :: nodo(${curso}, ${elemento})}"></div>
+					</th:block>
+				
+					<div th:unless="${elemento instanceof T(com.java.lms.curso.model.Modulo)}" style="margin-left: 15px;">
+						📄 <span th:text="${elemento.titulo}"></span>
+						(<span th:text="${elemento.duracionMinutos}"></span> min)
+					</div>
+				</li>
+			</ul>
+
+			<details style="font-size: 0.85em;">
+				<summary style="cursor: pointer;">+ Agregar aquí</summary>
+
+				<form th:action="@{/instructor/cursos/{cid}/contenido/{mid}/submodulo(cid=${curso.id},mid=${modulo.id})}"
+					  method="post" class="form-inline mt-2">
+					<input type="text" name="titulo" placeholder="Nombre del módulo" class="form-control form-control-sm mr-1" required>
+					<button type="submit" class="btn btn-sm btn-outline-primary">+ Módulo</button>
+				</form>
+
+				<form th:action="@{/instructor/cursos/{cid}/contenido/{mid}/leccion(cid=${curso.id},mid=${modulo.id})}"
+					  method="post" class="form-inline mt-2">
+					<input type="text" name="titulo" placeholder="Nombre de la lección" class="form-control form-control-sm mr-1" required>
+					<input type="number" name="duracionMinutos" placeholder="Min" class="form-control form-control-sm mr-1" style="width: 70px;" required>
+					<button type="submit" class="btn btn-sm btn-outline-success">+ Lección</button>
+				</form>
+			</details>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
