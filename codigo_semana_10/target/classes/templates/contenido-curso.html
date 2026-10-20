@@ -9,9 +9,9 @@
 	<div class="container" style="margin-top: 40px;">
 		<h1>Contenido de <span th:text="${curso.contenido.titulo}"></span></h1>
 
-		<div th:replace="~{fragments/modulo :: nodo(${curso}, ${curso.contenido.estructura})}"></div>
+		<div th:replace="~{fragments/modulo :: nodo(${curso}, ${curso.contenido.estructura}, ${editable})}"></div>
 
-		<a th:href="@{/instructor/mis-cursos}" class="btn btn-secondary mt-3">Volver</a>
+		<a th:href="${editable} ? @{/instructor/mis-cursos} : @{/estudiante/mis-cursos}" class="btn btn-secondary mt-3">Volver</a>
 	</div>
 </body>
 </html>

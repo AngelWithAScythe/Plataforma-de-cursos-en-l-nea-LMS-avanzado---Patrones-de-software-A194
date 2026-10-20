@@ -2,6 +2,7 @@ C:\Users\usuario\Downloads\Proyecto-LMS-PDS-factory-method\Proyecto-LMS-PDS-beta
 C:\Users\usuario\Downloads\Proyecto-LMS-PDS-factory-method\Proyecto-LMS-PDS-beta\src\main\java\com\java\lms\config\WebConfig.java
 C:\Users\usuario\Downloads\Proyecto-LMS-PDS-factory-method\Proyecto-LMS-PDS-beta\src\main\java\com\java\lms\controller\CertificadoController.java
 C:\Users\usuario\Downloads\Proyecto-LMS-PDS-factory-method\Proyecto-LMS-PDS-beta\src\main\java\com\java\lms\controller\CursoController.java
+C:\Users\usuario\Downloads\Proyecto-LMS-PDS-factory-method\Proyecto-LMS-PDS-beta\src\main\java\com\java\lms\controller\EstudianteController.java
 C:\Users\usuario\Downloads\Proyecto-LMS-PDS-factory-method\Proyecto-LMS-PDS-beta\src\main\java\com\java\lms\controller\IndexController.java
 C:\Users\usuario\Downloads\Proyecto-LMS-PDS-factory-method\Proyecto-LMS-PDS-beta\src\main\java\com\java\lms\controller\usuarioController.java
 C:\Users\usuario\Downloads\Proyecto-LMS-PDS-factory-method\Proyecto-LMS-PDS-beta\src\main\java\com\java\lms\curso\builder\CertificadoBuilder.java
@@ -29,6 +30,7 @@ C:\Users\usuario\Downloads\Proyecto-LMS-PDS-factory-method\Proyecto-LMS-PDS-beta
 C:\Users\usuario\Downloads\Proyecto-LMS-PDS-factory-method\Proyecto-LMS-PDS-beta\src\main\java\com\java\lms\curso\model\Evaluacion.java
 C:\Users\usuario\Downloads\Proyecto-LMS-PDS-factory-method\Proyecto-LMS-PDS-beta\src\main\java\com\java\lms\curso\model\EvaluacionCertificacion.java
 C:\Users\usuario\Downloads\Proyecto-LMS-PDS-factory-method\Proyecto-LMS-PDS-beta\src\main\java\com\java\lms\curso\model\EvaluacionTecnica.java
+C:\Users\usuario\Downloads\Proyecto-LMS-PDS-factory-method\Proyecto-LMS-PDS-beta\src\main\java\com\java\lms\curso\model\Inscripcion.java
 C:\Users\usuario\Downloads\Proyecto-LMS-PDS-factory-method\Proyecto-LMS-PDS-beta\src\main\java\com\java\lms\curso\model\Leccion.java
 C:\Users\usuario\Downloads\Proyecto-LMS-PDS-factory-method\Proyecto-LMS-PDS-beta\src\main\java\com\java\lms\curso\model\MarcaDeAguaDecorator.java
 C:\Users\usuario\Downloads\Proyecto-LMS-PDS-factory-method\Proyecto-LMS-PDS-beta\src\main\java\com\java\lms\curso\model\Modulo.java
@@ -37,8 +39,13 @@ C:\Users\usuario\Downloads\Proyecto-LMS-PDS-factory-method\Proyecto-LMS-PDS-beta
 C:\Users\usuario\Downloads\Proyecto-LMS-PDS-factory-method\Proyecto-LMS-PDS-beta\src\main\java\com\java\lms\curso\pdf\CertificadoAdapter.java
 C:\Users\usuario\Downloads\Proyecto-LMS-PDS-factory-method\Proyecto-LMS-PDS-beta\src\main\java\com\java\lms\curso\pdf\ExportadorCertificado.java
 C:\Users\usuario\Downloads\Proyecto-LMS-PDS-factory-method\Proyecto-LMS-PDS-beta\src\main\java\com\java\lms\curso\pdf\LogoDisponible.java
+C:\Users\usuario\Downloads\Proyecto-LMS-PDS-factory-method\Proyecto-LMS-PDS-beta\src\main\java\com\java\lms\curso\proxy\AccesoDenegadoException.java
+C:\Users\usuario\Downloads\Proyecto-LMS-PDS-factory-method\Proyecto-LMS-PDS-beta\src\main\java\com\java\lms\curso\proxy\ContenidoCursoProxy.java
+C:\Users\usuario\Downloads\Proyecto-LMS-PDS-factory-method\Proyecto-LMS-PDS-beta\src\main\java\com\java\lms\curso\proxy\ContenidoCursoServicio.java
+C:\Users\usuario\Downloads\Proyecto-LMS-PDS-factory-method\Proyecto-LMS-PDS-beta\src\main\java\com\java\lms\curso\proxy\ContenidoCursoServicioImpl.java
 C:\Users\usuario\Downloads\Proyecto-LMS-PDS-factory-method\Proyecto-LMS-PDS-beta\src\main\java\com\java\lms\curso\service\CertificadoService.java
 C:\Users\usuario\Downloads\Proyecto-LMS-PDS-factory-method\Proyecto-LMS-PDS-beta\src\main\java\com\java\lms\curso\service\CursoService.java
+C:\Users\usuario\Downloads\Proyecto-LMS-PDS-factory-method\Proyecto-LMS-PDS-beta\src\main\java\com\java\lms\curso\service\InscripcionService.java
 C:\Users\usuario\Downloads\Proyecto-LMS-PDS-factory-method\Proyecto-LMS-PDS-beta\src\main\java\com\java\lms\factory\AdministradorFactory.java
 C:\Users\usuario\Downloads\Proyecto-LMS-PDS-factory-method\Proyecto-LMS-PDS-beta\src\main\java\com\java\lms\factory\EstudianteFactory.java
 C:\Users\usuario\Downloads\Proyecto-LMS-PDS-factory-method\Proyecto-LMS-PDS-beta\src\main\java\com\java\lms\factory\InstructorFactory.java
@@ -52,5 +59,6 @@ C:\Users\usuario\Downloads\Proyecto-LMS-PDS-factory-method\Proyecto-LMS-PDS-beta
 C:\Users\usuario\Downloads\Proyecto-LMS-PDS-factory-method\Proyecto-LMS-PDS-beta\src\main\java\com\java\lms\ProyectoLmsPdsApplication.java
 C:\Users\usuario\Downloads\Proyecto-LMS-PDS-factory-method\Proyecto-LMS-PDS-beta\src\main\java\com\java\lms\repository\CertificadoRepository.java
 C:\Users\usuario\Downloads\Proyecto-LMS-PDS-factory-method\Proyecto-LMS-PDS-beta\src\main\java\com\java\lms\repository\CursoRepository.java
+C:\Users\usuario\Downloads\Proyecto-LMS-PDS-factory-method\Proyecto-LMS-PDS-beta\src\main\java\com\java\lms\repository\InscripcionRepository.java
 C:\Users\usuario\Downloads\Proyecto-LMS-PDS-factory-method\Proyecto-LMS-PDS-beta\src\main\java\com\java\lms\repository\UsuarioRepository.java
 C:\Users\usuario\Downloads\Proyecto-LMS-PDS-factory-method\Proyecto-LMS-PDS-beta\src\main\java\com\java\lms\repository\UsuarioRepositoryImpl.java

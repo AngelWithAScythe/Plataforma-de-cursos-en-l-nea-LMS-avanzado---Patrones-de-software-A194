@@ -18,6 +18,8 @@
 	<a th:if="${usuario.rol.name == 'ADMINISTRADOR'}" th:href="@{/admin/usuarios}" class="btn btn-primary">Crear usuario</a>
 	<a th:if="${usuario.rol.name == 'INSTRUCTOR'}" th:href="@{/instructor/cursos}" class="btn btn-success">Crear curso</a>
 	<a th:if="${usuario.rol.name == 'INSTRUCTOR'}" th:href="@{/instructor/mis-cursos}" class="btn btn-info">Mis cursos</a>
+	<a th:if="${usuario.rol.name == 'ESTUDIANTE'}" th:href="@{/estudiante/cursos}" class="btn btn-success">Cursos disponibles</a>
+	<a th:if="${usuario.rol.name == 'ESTUDIANTE'}" th:href="@{/estudiante/mis-cursos}" class="btn btn-info">Mis cursos</a>
 	<form th:action="@{/logout}" method="post" style="display:inline;">
     <button type="submit" class="btn btn-secondary">Cerrar sesión</button>
 </form>

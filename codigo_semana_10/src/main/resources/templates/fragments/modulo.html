@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
 
-<div th:fragment="nodo(curso, modulo)" style="margin-left: 15px; margin-top: 8px;">
+<div th:fragment="nodo(curso, modulo, editable)" style="margin-left: 15px; margin-top: 8px;">
 	<div class="card mb-2">
 		<div class="card-body py-2">
 			<strong th:text="${modulo.titulo}"></strong>
@@ -14,7 +14,7 @@
 			<ul style="list-style: none; padding-left: 0;">
 				<li th:each="elemento : ${modulo.elementos}">
 					<th:block th:if="${elemento instanceof T(com.java.lms.curso.model.Modulo)}">
-						<div th:replace="~{fragments/modulo :: nodo(${curso}, ${elemento})}"></div>
+						<div th:replace="~{fragments/modulo :: nodo(${curso}, ${elemento}, ${editable})}"></div>
 					</th:block>
 				
 					<div th:unless="${elemento instanceof T(com.java.lms.curso.model.Modulo)}" style="margin-left: 15px;">
@@ -24,7 +24,7 @@
 				</li>
 			</ul>
 
-			<details style="font-size: 0.85em;">
+			<details th:if="${editable}" style="font-size: 0.85em;">
 				<summary style="cursor: pointer;">+ Agregar aquí</summary>
 
 				<form th:action="@{/instructor/cursos/{cid}/contenido/{mid}/submodulo(cid=${curso.id},mid=${modulo.id})}"
