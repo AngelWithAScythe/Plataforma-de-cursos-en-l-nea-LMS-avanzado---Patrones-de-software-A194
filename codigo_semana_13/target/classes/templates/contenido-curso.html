@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Contenido del curso</title>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container" style="margin-top: 40px;">
+		<h1>Contenido de <span th:text="${curso.contenido.titulo}"></span></h1>
+		<p class="alert alert-success" th:if="${mensaje}" th:text="${mensaje}"></p>
+		<p class="alert alert-danger" th:if="${error}" th:text="${error}"></p>
+		
+		<form th:if="${editable}" th:action="@{/instructor/cursos/{id}/contenido/deshacer(id=${curso.id})}" method="post" class="mb-3">
+			<button type="submit" class="btn btn-sm btn-outline-warning">↶ Deshacer última acción</button>
+		</form>
+		
+		<div th:if="${editable}" class="card mb-3">
+			<div class="card-body py-2">
+				<form th:action="@{/instructor/cursos/{id}/contenido/puntos(id=${curso.id})}" method="post" class="form-inline">
+					<input type="text" name="etiqueta" placeholder="Nombre del punto (ej. Antes de reorganizar)"
+						   class="form-control form-control-sm mr-2" required>
+					<button type="submit" class="btn btn-sm btn-outline-primary">Guardar punto de restauración</button>
+				</form>
+		
+				<ul class="list-unstyled mt-2 mb-0" th:unless="${#lists.isEmpty(puntos)}">
+					<li th:each="p : ${puntos}" class="d-flex align-items-center mb-1">
+						<span class="mr-2">
+							<strong th:text="${p.etiqueta}"></strong>
+							<span class="text-muted" th:text="${p.fecha}"></span>
+						</span>
+						<form th:action="@{/instructor/cursos/{id}/contenido/puntos/{pid}/restaurar(id=${curso.id},pid=${p.id})}" method="post">
+							<button type="submit" class="btn btn-sm btn-outline-danger">Restaurar</button>
+						</form>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div th:replace="~{fragments/modulo :: nodo(${curso}, ${curso.contenido.estructura}, ${editable})}"></div>
+		<h4 class="mt-4">Plan de lecciones</h4>
+
+		<p th:if="${#lists.isEmpty(plan)}" class="text-muted">Este curso todavía no tiene lecciones.</p>
+		
+		<table class="table table-sm" th:unless="${#lists.isEmpty(plan)}">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Lección</th>
+					<th>Duración</th>
+					<th>Inicio (min)</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="fila : ${plan}">
+					<td th:text="${fila.numero()}"></td>
+					<td th:text="${fila.titulo()}"></td>
+					<td><span th:text="${fila.duracionMinutos()}"></span> min</td>
+					<td th:text="${fila.inicioMinuto()}"></td>
+				</tr>
+			</tbody>
+		</table>
+		<a th:href="${editable} ? @{/instructor/mis-cursos} : @{/estudiante/mis-cursos}" class="btn btn-secondary mt-3">Volver</a>
+	</div>
+</body>
+</html>

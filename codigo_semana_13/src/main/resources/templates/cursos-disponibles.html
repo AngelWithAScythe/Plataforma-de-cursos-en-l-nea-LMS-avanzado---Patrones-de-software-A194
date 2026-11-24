@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Cursos disponibles</title>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container" style="margin-top: 40px;">
+		<h1>Cursos disponibles</h1>
+
+		<p class="alert alert-success" th:if="${mensaje}" th:text="${mensaje}"></p>
+		<p class="alert alert-danger" th:if="${error}" th:text="${error}"></p>
+
+		<p th:if="${#lists.isEmpty(cursos)}">Todavía no hay cursos publicados.</p>
+
+		<div class="card mb-3" th:each="curso : ${cursos}">
+			<div class="card-body">
+				<h5 class="card-title" th:text="${curso.contenido.titulo}"></h5>
+				<p class="card-text" th:text="${curso.contenido.descripcion}"></p>
+				<p class="text-muted">Instructor: <span th:text="${curso.instructor.nombre}"></span></p>
+
+				<span th:if="${inscritosIds.contains(curso.id)}" class="badge badge-success">Inscrito</span>
+
+				<form th:unless="${inscritosIds.contains(curso.id)}"
+					  th:action="@{/estudiante/cursos/{id}/inscribirse(id=${curso.id})}" method="post">
+					<button type="submit" class="btn btn-sm btn-primary">Inscribirme</button>
+				</form>
+			</div>
+		</div>
+
+		<a th:href="@{/home}" class="btn btn-secondary">Volver</a>
+	</div>
+</body>
+</html>
